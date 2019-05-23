@@ -1,10 +1,6 @@
 using System;
-using System.IO;
-using System.Net;
-using System.Net.Mail;
-using System.Text;
 
-namespace TestNinja.Mocking
+namespace BootcampDemo.Examples
 {
     public class HouseKeeperService
     {
@@ -14,7 +10,7 @@ namespace TestNinja.Mocking
         private readonly IXtraMessageBox _messageBox;
 
         public HouseKeeperService(
-            IUnitOfWork unitOfWork, 
+            IUnitOfWork unitOfWork,
             IStatementGenerator statementGenerator,
             IEmailSender emailSender,
             IXtraMessageBox messageBox)
@@ -24,14 +20,14 @@ namespace TestNinja.Mocking
             _emailSender = emailSender;
             _messageBox = messageBox;
         }
-        
+
         public void SendStatementEmails(DateTime statementDate)
         {
             var housekeepers = _unitOfWork.Query<Housekeeper>();
 
             foreach (var housekeeper in housekeepers)
             {
-                if (String.IsNullOrWhiteSpace(housekeeper.Email)) 
+                if (String.IsNullOrWhiteSpace(housekeeper.Email))
                     continue;
 
                 var statementFilename = _statementGenerator.SaveStatement(housekeeper.Oid, housekeeper.FullName, statementDate);

@@ -1,4 +1,4 @@
-﻿namespace TestNinja.Mocking
+﻿namespace BootcampDemo.Examples
 {
     public class Program
     {

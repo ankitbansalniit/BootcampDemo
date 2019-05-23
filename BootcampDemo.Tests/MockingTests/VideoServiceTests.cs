@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using BootcampDemo.Examples;
 using Moq;
 using NUnit.Framework;
-using TestNinja.Mocking;
+using System.Collections.Generic;
 
-namespace TestNinja.UnitTests.Mocking
+namespace FundamentalsTests.Mocking
 {
     [TestFixture]
     public class VideoServiceTests
@@ -19,14 +19,14 @@ namespace TestNinja.UnitTests.Mocking
             _repository = new Mock<IVideoRepository>();
             _videoService = new VideoService(_fileReader.Object, _repository.Object);
         }
-        
+
         [Test]
         public void ReadVideoTitle_EmptyFile_ReturnError()
         {
             _fileReader.Setup(fr => fr.Read("video.txt")).Returns("");
 
             var result = _videoService.ReadVideoTitle();
-            
+
             Assert.That(result, Does.Contain("error").IgnoreCase);
         }
 
@@ -36,7 +36,7 @@ namespace TestNinja.UnitTests.Mocking
             _repository.Setup(r => r.GetUnprocessedVideos()).Returns(new List<Video>());
 
             var result = _videoService.GetUnprocessedVideosAsCsv();
-            
+
             Assert.That(result, Is.EqualTo(""));
         }
 
@@ -51,9 +51,9 @@ namespace TestNinja.UnitTests.Mocking
             });
 
             var result = _videoService.GetUnprocessedVideosAsCsv();
-            
+
             Assert.That(result, Is.EqualTo("1,2,3"));
         }
-        
+
     }
 }

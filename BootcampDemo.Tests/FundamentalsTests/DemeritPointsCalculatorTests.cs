@@ -1,8 +1,8 @@
-﻿using System;
+﻿using BootcampDemo.Examples;
 using NUnit.Framework;
-using TestNinja.Fundamentals;
+using System;
 
-namespace TestNinja.UnitTests
+namespace FundamentalsTests
 {
     [TestFixture]
     public class DemeritPointsCalculatorTests
@@ -17,7 +17,7 @@ namespace TestNinja.UnitTests
             Assert.That(() => calculator.CalculateDemeritPoints(speed),
                 Throws.Exception.TypeOf<ArgumentOutOfRangeException>());
         }
-        
+
         [Test]
         [TestCase(0, 0)]
         [TestCase(64, 0)]
@@ -30,7 +30,7 @@ namespace TestNinja.UnitTests
             var calculator = new DemeritPointsCalculator();
 
             var points = calculator.CalculateDemeritPoints(speed);
-            
+
             Assert.That(points, Is.EqualTo(expectedResult));
         }
     }

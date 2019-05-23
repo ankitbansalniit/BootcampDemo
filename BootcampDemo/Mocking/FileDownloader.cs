@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace TestNinja.Mocking
+namespace BootcampDemo.Examples
 {
     public interface IFileDownloader
     {
@@ -12,7 +12,7 @@ namespace TestNinja.Mocking
         public void DownloadFile(string url, string path)
         {
             var client = new WebClient();
-            client.DownloadFile(url, path);            
+            client.DownloadFile(url, path);
         }
     }
 }

@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Text;
 
-namespace TestNinja.Mocking
+namespace BootcampDemo.Examples
 {
     public interface IEmailSender
     {
@@ -41,6 +41,6 @@ namespace TestNinja.Mocking
 
             File.Delete(filename);
         }
-        
+
     }
 }

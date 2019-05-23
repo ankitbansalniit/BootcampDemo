@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-namespace TestNinja.Mocking
+namespace BootcampDemo.Examples
 {
     public interface IFileReader
     {

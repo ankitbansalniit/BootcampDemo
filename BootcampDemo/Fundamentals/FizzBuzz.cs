@@ -1,4 +1,4 @@
-﻿namespace TestNinja.Fundamentals
+﻿namespace BootcampDemo.Examples
 {
     public class FizzBuzz
     {
@@ -13,7 +13,7 @@
             if (number % 5 == 0)
                 return "Buzz";
 
-            return number.ToString(); 
+            return number.ToString();
         }
     }
 }

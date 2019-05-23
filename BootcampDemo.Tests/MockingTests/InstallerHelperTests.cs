@@ -1,9 +1,9 @@
-﻿using System.Net;
+﻿using BootcampDemo.Examples;
 using Moq;
 using NUnit.Framework;
-using TestNinja.Mocking;
+using System.Net;
 
-namespace TestNinja.UnitTests.Mocking
+namespace FundamentalsTests.Mocking
 {
     [TestFixture]
     public class InstallerHelperTests
@@ -21,12 +21,12 @@ namespace TestNinja.UnitTests.Mocking
         [Test]
         public void DownloadInstaller_DownloadFails_ReturnFalse()
         {
-            _fileDownloader.Setup(fd => 
+            _fileDownloader.Setup(fd =>
                 fd.DownloadFile(It.IsAny<string>(), It.IsAny<string>()))
                 .Throws<WebException>();
 
             var result = _installerHelper.DownloadInstaller("customer", "installer");
-            
+
             Assert.That(result, Is.False);
         }
 
@@ -34,9 +34,9 @@ namespace TestNinja.UnitTests.Mocking
         public void DownloadInstaller_DownloadCompletes_ReturnTrue()
         {
             var result = _installerHelper.DownloadInstaller("customer", "installer");
-            
+
             Assert.That(result, Is.True);
         }
-        
+
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace TestNinja.Mocking
+﻿namespace BootcampDemo.Examples
 {
     public class OrderService
     {
@@ -12,10 +12,10 @@
         public int PlaceOrder(Order order)
         {
             var orderId = _storage.Store(order);
-            
+
             // Some other work
 
-            return orderId; 
+            return orderId;
         }
     }
 

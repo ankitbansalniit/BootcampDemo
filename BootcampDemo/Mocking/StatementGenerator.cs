@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace TestNinja.Mocking
+namespace BootcampDemo.Examples
 {
     public interface IStatementGenerator
     {
@@ -27,6 +27,6 @@ namespace TestNinja.Mocking
 
             return filename;
         }
-        
+
     }
 }

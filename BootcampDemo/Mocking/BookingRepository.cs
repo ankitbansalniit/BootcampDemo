@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace TestNinja.Mocking
+namespace BootcampDemo.Examples
 {
     public interface IBookingRepository
     {
@@ -15,12 +15,12 @@ namespace TestNinja.Mocking
             var bookings =
                 unitOfWork.Query<Booking>()
                     .Where(
-                        b =>  b.Status != "Cancelled");
+                        b => b.Status != "Cancelled");
 
             if (excludedBookingId.HasValue)
                 bookings = bookings.Where(b => b.Id != excludedBookingId.Value);
 
-            return bookings; 
+            return bookings;
         }
     }
 }

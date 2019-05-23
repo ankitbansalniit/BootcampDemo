@@ -1,4 +1,4 @@
-﻿namespace TestNinja.Fundamentals
+﻿namespace BootcampDemo.Examples
 {
     public class Reservation
     {
@@ -8,7 +8,7 @@
         {
             return (user.IsAdmin || MadeBy == user);
         }
-        
+
     }
 
     public class User

@@ -1,7 +1,7 @@
-﻿using NUnit.Framework;
-using TestNinja.Fundamentals;
+﻿using BootcampDemo.Examples;
+using NUnit.Framework;
 
-namespace TestNinja.UnitTests
+namespace FundamentalsTests
 {
     [TestFixture]
     public class CustomerControllerTests
@@ -12,18 +12,18 @@ namespace TestNinja.UnitTests
             var controller = new CustomerController();
 
             var result = controller.GetCustomer(0);
-            
+
             // NotFound 
             Assert.That(result, Is.TypeOf<NotFound>());
-            
+
             // NotFound or one of its derivatives 
-//            Assert.That(result, Is.InstanceOf<NotFound>());
+            //            Assert.That(result, Is.InstanceOf<NotFound>());
         }
 
         [Test]
         public void GetCustomer_IdIsNotZero_ReturnOk()
         {
-            
+
         }
     }
 }

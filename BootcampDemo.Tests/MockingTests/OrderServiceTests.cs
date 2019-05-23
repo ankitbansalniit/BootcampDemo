@@ -1,8 +1,8 @@
-﻿using Moq;
+﻿using BootcampDemo.Examples;
+using Moq;
 using NUnit.Framework;
-using TestNinja.Mocking;
 
-namespace TestNinja.UnitTests.Mocking
+namespace FundamentalsTests.Mocking
 {
     [TestFixture]
     public class OrderServiceTests
@@ -15,9 +15,9 @@ namespace TestNinja.UnitTests.Mocking
 
             var order = new Order();
             service.PlaceOrder(order);
-            
+
             storage.Verify(s => s.Store(order));
         }
-        
+
     }
 }

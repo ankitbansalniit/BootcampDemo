@@ -1,7 +1,7 @@
-﻿using NUnit.Framework;
-using TestNinja.Fundamentals;
+﻿using BootcampDemo.Examples;
+using NUnit.Framework;
 
-namespace TestNinja.UnitTests
+namespace FundamentalsTests
 {
     [TestFixture]
     public class ReservationTests

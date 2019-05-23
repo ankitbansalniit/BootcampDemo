@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace TestNinja.Mocking
+namespace BootcampDemo.Examples
 {
     public class InstallerHelper
     {
@@ -15,7 +15,7 @@ namespace TestNinja.Mocking
         public bool DownloadInstaller(string customerName, string installerName)
         {
             try
-            {    
+            {
                 _fileDownloader.DownloadFile(
                     string.Format("http://example.com/{0}/{1}",
                         customerName,
@@ -26,7 +26,7 @@ namespace TestNinja.Mocking
             }
             catch (WebException)
             {
-                return false; 
+                return false;
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿namespace TestNinja.Fundamentals
+﻿namespace BootcampDemo.Examples
 {
     public class HtmlFormatter
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace TestNinja.Mocking
+namespace BootcampDemo.Examples
 {
     public interface IVideoRepository
     {
@@ -14,10 +14,10 @@ namespace TestNinja.Mocking
         {
             using (var context = new VideoContext())
             {
-                var videos = 
+                var videos =
                 (from video in context.Videos
-                    where !video.IsProcessed
-                    select video).ToList();
+                 where !video.IsProcessed
+                 select video).ToList();
 
                 return videos;
             }

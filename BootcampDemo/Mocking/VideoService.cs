@@ -1,11 +1,9 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.IO;
-using System.Linq;
-using Newtonsoft.Json;
 
-namespace TestNinja.Mocking
+namespace BootcampDemo.Examples
 {
     public class VideoService
     {
@@ -17,7 +15,7 @@ namespace TestNinja.Mocking
             _fileReader = fileReader ?? new FileReader();
             _repository = repository ?? new VideoRepository();
         }
-        
+
         public string ReadVideoTitle()
         {
             var str = _fileReader.Read("video.txt");
@@ -31,7 +29,7 @@ namespace TestNinja.Mocking
         {
             var videoIds = new List<int>();
 
-            var videos = _repository.GetUnprocessedVideos();                            
+            var videos = _repository.GetUnprocessedVideos();
             foreach (var v in videos)
                 videoIds.Add(v.Id);
 

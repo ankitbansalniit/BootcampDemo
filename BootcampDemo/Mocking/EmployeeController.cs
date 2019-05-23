@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-namespace TestNinja.Mocking
+namespace BootcampDemo.Examples
 {
     public class EmployeeController
     {
@@ -14,7 +14,7 @@ namespace TestNinja.Mocking
         public ActionResult DeleteEmployee(int id)
         {
             _storage.DeleteEmployee(id);
-            
+
             return RedirectToAction("Employees");
         }
 
@@ -24,11 +24,11 @@ namespace TestNinja.Mocking
         }
     }
 
-    public class ActionResult { }
- 
+    public partial class ActionResult { }
+
     public class RedirectResult : ActionResult { }
-    
-    public class EmployeeContext 
+
+    public class EmployeeContext
     {
         public DbSet<Employee> Employees { get; set; }
 

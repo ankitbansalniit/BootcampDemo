@@ -1,4 +1,4 @@
-﻿namespace TestNinja.Fundamentals
+﻿namespace BootcampDemo.Examples
 {
     public class CustomerController
     {
@@ -6,14 +6,14 @@
         {
             if (id == 0)
                 return new NotFound();
-            
+
             return new Ok();
-        }        
+        }
     }
-    
-    public class ActionResult { }
-    
+
+    public partial class ActionResult { }
+
     public class NotFound : ActionResult { }
- 
+
     public class Ok : ActionResult { }
 }
