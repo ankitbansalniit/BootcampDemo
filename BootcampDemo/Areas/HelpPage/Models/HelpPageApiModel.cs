@@ -1,8 +1,8 @@
+using BootcampDemo.Areas.HelpPage.ModelDescriptions;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Net.Http.Headers;
 using System.Web.Http.Description;
-using BootcampDemo.Areas.HelpPage.ModelDescriptions;
 
 namespace BootcampDemo.Areas.HelpPage.Models
 {

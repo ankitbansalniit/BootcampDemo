@@ -1,7 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using BootcampDemo.Controllers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BootcampDemo;
-using BootcampDemo.Controllers;
+using System.Web.Mvc;
 
 namespace BootcampDemo.Tests.Controllers
 {

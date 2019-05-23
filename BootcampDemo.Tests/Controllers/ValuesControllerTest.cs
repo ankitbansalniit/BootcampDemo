@@ -1,12 +1,7 @@
-﻿using System;
+﻿using BootcampDemo.Controllers;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Web.Http;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using BootcampDemo;
-using BootcampDemo.Controllers;
 
 namespace BootcampDemo.Tests.Controllers
 {

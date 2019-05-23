@@ -1,8 +1,8 @@
+using BootcampDemo.Areas.HelpPage.ModelDescriptions;
+using BootcampDemo.Areas.HelpPage.Models;
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
-using BootcampDemo.Areas.HelpPage.ModelDescriptions;
-using BootcampDemo.Areas.HelpPage.Models;
 
 namespace BootcampDemo.Areas.HelpPage.Controllers
 {
