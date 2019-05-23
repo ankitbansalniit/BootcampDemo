@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BootcampDemo.Examples
+namespace TestNinja.Fundamentals
 {
     public class DateHelper
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace BootcampDemo.Examples
+namespace TestNinja.Fundamentals
 {
     public class Stack<T>
     {
@@ -13,7 +13,7 @@ namespace BootcampDemo.Examples
         {
             if (obj == null)
                 throw new ArgumentNullException();
-
+            
             _list.Add(obj);
         }
 
@@ -25,8 +25,9 @@ namespace BootcampDemo.Examples
             var result = _list[_list.Count - 1];
             _list.RemoveAt(_list.Count - 1);
 
-            return result;
+            return result; 
         }
+
 
         public T Peek()
         {

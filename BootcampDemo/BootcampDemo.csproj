@@ -166,26 +166,34 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="Examples\BookingHelper.cs" />
-    <Compile Include="Examples\CustomerController.cs" />
-    <Compile Include="Examples\DateHelper.cs" />
-    <Compile Include="Examples\DemeritPointsCalculator.cs" />
-    <Compile Include="Examples\EmployeeController.cs" />
-    <Compile Include="Examples\ErrorLogger.cs" />
-    <Compile Include="Examples\FizzBuzz.cs" />
-    <Compile Include="Examples\HousekeeperHelper.cs" />
-    <Compile Include="Examples\HtmlFormatter.cs" />
-    <Compile Include="Examples\InstallerHelper.cs" />
-    <Compile Include="Examples\Math.cs" />
-    <Compile Include="Examples\OrderService.cs" />
-    <Compile Include="Examples\PhoneNumber.cs" />
-    <Compile Include="Examples\Product.cs" />
-    <Compile Include="Examples\Reservation.cs" />
-    <Compile Include="Examples\Stack.cs" />
-    <Compile Include="Examples\VideoService.cs" />
+    <Compile Include="Fundamentals\CustomerController.cs" />
+    <Compile Include="Fundamentals\DateHelper.cs" />
+    <Compile Include="Fundamentals\DemeritPointsCalculator.cs" />
+    <Compile Include="Fundamentals\ErrorLogger.cs" />
+    <Compile Include="Fundamentals\FizzBuzz.cs" />
+    <Compile Include="Fundamentals\HtmlFormatter.cs" />
+    <Compile Include="Fundamentals\Math.cs" />
+    <Compile Include="Fundamentals\PhoneNumber.cs" />
+    <Compile Include="Fundamentals\Reservation.cs" />
+    <Compile Include="Fundamentals\Stack.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mocking\BookingHelper.cs" />
+    <Compile Include="Mocking\BookingRepository.cs" />
+    <Compile Include="Mocking\EmailSender.cs" />
+    <Compile Include="Mocking\EmployeeController.cs" />
+    <Compile Include="Mocking\EmployeeStorage.cs" />
+    <Compile Include="Mocking\FileDownloader.cs" />
+    <Compile Include="Mocking\FileReader.cs" />
+    <Compile Include="Mocking\HouseKeeperService.cs" />
+    <Compile Include="Mocking\InstallerHelper.cs" />
+    <Compile Include="Mocking\OrderService.cs" />
+    <Compile Include="Mocking\Product.cs" />
+    <Compile Include="Mocking\Program.cs" />
+    <Compile Include="Mocking\StatementGenerator.cs" />
+    <Compile Include="Mocking\VideoRepository.cs" />
+    <Compile Include="Mocking\VideoService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
