@@ -5,9 +5,6 @@ using System;
 
 namespace NUnit.Framework
 {
-    /// <summary>
-    /// A simple ExpectedExceptionAttribute
-    /// </summary>
     [AttributeUsage(AttributeTargets.Method, AllowMultiple = false, Inherited = false)]
     public class ExpectedExceptionAttribute : NUnitAttribute, IWrapTestMethod
     {

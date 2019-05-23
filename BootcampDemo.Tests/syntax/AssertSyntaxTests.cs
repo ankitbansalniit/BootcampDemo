@@ -2,19 +2,6 @@ using System.Collections;
 
 namespace NUnit.Framework.Tests
 {
-    /// <summary>
-    /// This test fixture attempts to exercise all the syntactic
-    /// variations of Assert without getting into failures, errors
-    /// or corner cases. Thus, some of the tests may be duplicated
-    /// in other fixtures.
-    ///
-    /// Each test performs the same operations using the classic
-    /// syntax (if available) and the new syntax in both the
-    /// helper-based and inherited forms.
-    ///
-    /// This Fixture will eventually be duplicated in other
-    /// supported languages.
-    /// </summary>
     [TestFixture]
     public class AssertSyntaxTests
     {
@@ -25,30 +12,24 @@ namespace NUnit.Framework.Tests
         {
             object nada = null;
 
-            // Classic syntax
             Assert.IsNull(nada);
 
-            // Constraint Syntax
             Assert.That(nada, Is.Null);
         }
 
         [Test]
         public void IsNotNull()
         {
-            // Classic syntax
             Assert.IsNotNull(42);
 
-            // Constraint Syntax
             Assert.That(42, Is.Not.Null);
         }
 
         [Test]
         public void IsTrue()
         {
-            // Classic syntax
             Assert.IsTrue(2 + 2 == 4);
 
-            // Constraint Syntax
             Assert.That(2 + 2 == 4, Is.True);
             Assert.That(2 + 2 == 4);
         }
@@ -56,10 +37,8 @@ namespace NUnit.Framework.Tests
         [Test]
         public void IsFalse()
         {
-            // Classic syntax
             Assert.IsFalse(2 + 2 == 5);
 
-            // Constraint Syntax
             Assert.That(2 + 2 == 5, Is.False);
         }
 
@@ -69,11 +48,9 @@ namespace NUnit.Framework.Tests
             double d = double.NaN;
             float f = float.NaN;
 
-            // Classic syntax
             Assert.IsNaN(d);
             Assert.IsNaN(f);
 
-            // Constraint Syntax
             Assert.That(d, Is.NaN);
             Assert.That(f, Is.NaN);
         }
@@ -81,11 +58,9 @@ namespace NUnit.Framework.Tests
         [Test]
         public void EmptyStringTests()
         {
-            // Classic syntax
             Assert.IsEmpty("");
             Assert.IsNotEmpty("Hello!");
 
-            // Constraint Syntax
             Assert.That("", Is.Empty);
             Assert.That("Hello!", Is.Not.Empty);
         }
@@ -93,11 +68,9 @@ namespace NUnit.Framework.Tests
         [Test]
         public void EmptyCollectionTests()
         {
-            // Classic syntax
             Assert.IsEmpty(new bool[0]);
             Assert.IsNotEmpty(new int[] { 1, 2, 3 });
 
-            // Constraint Syntax
             Assert.That(new bool[0], Is.Empty);
             Assert.That(new int[] { 1, 2, 3 }, Is.Not.Empty);
         }
@@ -109,13 +82,11 @@ namespace NUnit.Framework.Tests
         [Test]
         public void ExactTypeTests()
         {
-            // Classic syntax workarounds
             Assert.AreEqual(typeof(string), "Hello".GetType());
             Assert.AreEqual("System.String", "Hello".GetType().FullName);
             Assert.AreNotEqual(typeof(int), "Hello".GetType());
             Assert.AreNotEqual("System.Int32", "Hello".GetType().FullName);
 
-            // Constraint Syntax
             Assert.That("Hello", Is.TypeOf(typeof(string)));
             Assert.That("Hello", Is.Not.TypeOf(typeof(int)));
         }
@@ -123,11 +94,9 @@ namespace NUnit.Framework.Tests
         [Test]
         public void InstanceOfTests()
         {
-            // Classic syntax
             Assert.IsInstanceOf(typeof(string), "Hello");
             Assert.IsNotInstanceOf(typeof(string), 5);
 
-            // Constraint Syntax
             Assert.That("Hello", Is.InstanceOf(typeof(string)));
             Assert.That(5, Is.Not.InstanceOf(typeof(string)));
         }
@@ -135,11 +104,9 @@ namespace NUnit.Framework.Tests
         [Test]
         public void AssignableFromTypeTests()
         {
-            // Classic syntax
             Assert.IsAssignableFrom(typeof(string), "Hello");
             Assert.IsNotAssignableFrom(typeof(string), 5);
 
-            // Constraint Syntax
             Assert.That("Hello", Is.AssignableFrom(typeof(string)));
             Assert.That(5, Is.Not.AssignableFrom(typeof(string)));
         }
@@ -154,12 +121,9 @@ namespace NUnit.Framework.Tests
             string phrase = "Hello World!";
             string[] array = new string[] { "abc", "bad", "dba" };
 
-            // Classic Syntax
             StringAssert.Contains("World", phrase);
 
-            // Constraint Syntax
             Assert.That(phrase, Does.Contain("World"));
-            // Only available using new syntax
             Assert.That(phrase, Does.Not.Contain("goodbye"));
             Assert.That(phrase, Does.Contain("WORLD").IgnoreCase);
             Assert.That(phrase, Does.Not.Contain("BYE").IgnoreCase);
@@ -172,12 +136,9 @@ namespace NUnit.Framework.Tests
             string phrase = "Hello World!";
             string[] greetings = new string[] { "Hello!", "Hi!", "Hola!" };
 
-            // Classic syntax
             StringAssert.StartsWith("Hello", phrase);
 
-            // Constraint Syntax
             Assert.That(phrase, Does.StartWith("Hello"));
-            // Only available using new syntax
             Assert.That(phrase, Does.Not.StartWith("Hi!"));
             Assert.That(phrase, Does.StartWith("HeLLo").IgnoreCase);
             Assert.That(phrase, Does.Not.StartWith("HI").IgnoreCase);
@@ -190,12 +151,9 @@ namespace NUnit.Framework.Tests
             string phrase = "Hello World!";
             string[] greetings = new string[] { "Hello!", "Hi!", "Hola!" };
 
-            // Classic Syntax
             StringAssert.EndsWith("!", phrase);
 
-            // Constraint Syntax
             Assert.That(phrase, Does.EndWith("!"));
-            // Only available using new syntax
             Assert.That(phrase, Does.Not.EndWith("?"));
             Assert.That(phrase, Does.EndWith("WORLD!").IgnoreCase);
             Assert.That(greetings, Is.All.EndsWith("!"));
@@ -206,12 +164,9 @@ namespace NUnit.Framework.Tests
         {
             string phrase = "Hello World!";
 
-            // Classic syntax
             StringAssert.AreEqualIgnoringCase("hello world!", phrase);
 
-            // Constraint Syntax
             Assert.That(phrase, Is.EqualTo("hello world!").IgnoreCase);
-            //Only available using new syntax
             Assert.That(phrase, Is.Not.EqualTo("goodbye world!").IgnoreCase);
             Assert.That(new string[] { "Hello", "World" },
                 Is.EqualTo(new object[] { "HELLO", "WORLD" }).IgnoreCase);
@@ -225,14 +180,11 @@ namespace NUnit.Framework.Tests
             string phrase = "Now is the time for all good men to come to the aid of their country.";
             string[] quotes = new string[] { "Never say never", "It's never too late", "Nevermore!" };
 
-            // Classic syntax
             StringAssert.IsMatch("all good men", phrase);
             StringAssert.IsMatch("Now.*come", phrase);
 
-            // Constraint Syntax
             Assert.That(phrase, Does.Match("all good men"));
             Assert.That(phrase, Does.Match("Now.*come"));
-            // Only available using new syntax
             Assert.That(phrase, Does.Not.Match("all.*men.*good"));
             Assert.That(phrase, Does.Match("ALL").IgnoreCase);
             Assert.That(quotes, Is.All.Matches("never").IgnoreCase);
@@ -249,13 +201,11 @@ namespace NUnit.Framework.Tests
             double[] d3 = new double[] { 1.0, 2.0, 3.0 };
             int[] iunequal = new int[] { 1, 3, 2 };
 
-            // Classic Syntax
             Assert.AreEqual(4, 2 + 2);
             Assert.AreEqual(i3, d3);
             Assert.AreNotEqual(5, 2 + 2);
             Assert.AreNotEqual(i3, iunequal);
 
-            // Constraint Syntax
             Assert.That(2 + 2, Is.EqualTo(4));
             Assert.That(2 + 2 == 4);
             Assert.That(i3, Is.EqualTo(d3));
@@ -266,11 +216,9 @@ namespace NUnit.Framework.Tests
         [Test]
         public void EqualityTestsWithTolerance()
         {
-            // CLassic syntax
             Assert.AreEqual(5.0d, 4.99d, 0.05d);
             Assert.AreEqual(5.0f, 4.99f, 0.05f);
 
-            // Constraint Syntax
             Assert.That(4.99d, Is.EqualTo(5.0d).Within(0.05d));
             Assert.That(4.0d, Is.Not.EqualTo(5.0d).Within(0.5d));
             Assert.That(4.99f, Is.EqualTo(5.0f).Within(0.05f));
@@ -284,7 +232,6 @@ namespace NUnit.Framework.Tests
         [Test]
         public void EqualityTestsWithTolerance_MixedFloatAndDouble()
         {
-            // Bug Fix 1743844
             Assert.That(2.20492d, Is.EqualTo(2.2d).Within(0.01f),
                 "Double actual, Double expected, Single tolerance");
             Assert.That(2.20492d, Is.EqualTo(2.2f).Within(0.01d),
@@ -302,7 +249,6 @@ namespace NUnit.Framework.Tests
         [Test]
         public void EqualityTestsWithTolerance_MixingTypesGenerally()
         {
-            // Extending tolerance to all numeric types
             Assert.That(202d, Is.EqualTo(200d).Within(2),
                 "Double actual, Double expected, int tolerance");
             Assert.That(4.87m, Is.EqualTo(5).Within(.25),
@@ -326,24 +272,20 @@ namespace NUnit.Framework.Tests
         [Test]
         public void ComparisonTests()
         {
-            // Classic Syntax
             Assert.Greater(7, 3);
             Assert.GreaterOrEqual(7, 3);
             Assert.GreaterOrEqual(7, 7);
 
-            // Constraint Syntax
             Assert.That(7, Is.GreaterThan(3));
             Assert.That(7, Is.GreaterThanOrEqualTo(3));
             Assert.That(7, Is.AtLeast(3));
             Assert.That(7, Is.GreaterThanOrEqualTo(7));
             Assert.That(7, Is.AtLeast(7));
 
-            // Classic syntax
             Assert.Less(3, 7);
             Assert.LessOrEqual(3, 7);
             Assert.LessOrEqual(3, 3);
 
-            // Constraint Syntax
             Assert.That(3, Is.LessThan(7));
             Assert.That(3, Is.LessThanOrEqualTo(7));
             Assert.That(3, Is.AtMost(7));
@@ -362,13 +304,11 @@ namespace NUnit.Framework.Tests
             object[] doubles = new object[] { 0.99, 2.1, 3.0, 4.05 };
             object[] strings = new object[] { "abc", "bad", "cab", "bad", "dad" };
 
-            // Classic syntax
             CollectionAssert.AllItemsAreNotNull(ints);
             CollectionAssert.AllItemsAreInstancesOfType(ints, typeof(int));
             CollectionAssert.AllItemsAreInstancesOfType(strings, typeof(string));
             CollectionAssert.AllItemsAreUnique(ints);
 
-            // Constraint Syntax
             Assert.That(ints, Is.All.Not.Null);
             Assert.That(ints, Has.None.Null);
             Assert.That(ints, Is.All.InstanceOf(typeof(int)));
@@ -376,7 +316,6 @@ namespace NUnit.Framework.Tests
             Assert.That(strings, Is.All.InstanceOf(typeof(string)));
             Assert.That(strings, Has.All.InstanceOf(typeof(string)));
             Assert.That(ints, Is.Unique);
-            // Only available using new syntax
             Assert.That(strings, Is.Not.Unique);
             Assert.That(ints, Is.All.GreaterThan(0));
             Assert.That(ints, Has.All.GreaterThan(0));
@@ -395,9 +334,6 @@ namespace NUnit.Framework.Tests
             object[] mixed = new object[] { 1, 2, "3", null, "four", 100 };
             object[] strings = new object[] { "abc", "bad", "cab", "bad", "dad" };
 
-            // Not available using the classic syntax
-
-            // Constraint Syntax
             Assert.That(mixed, Has.Some.Null);
             Assert.That(mixed, Has.Some.InstanceOf(typeof(int)));
             Assert.That(mixed, Has.Some.InstanceOf(typeof(string)));
@@ -411,9 +347,6 @@ namespace NUnit.Framework.Tests
             object[] ints = new object[] { 1, 2, 3, 4, 5 };
             object[] strings = new object[] { "abc", "bad", "cab", "bad", "dad" };
 
-            // Not available using the classic syntax
-
-            // Constraint Syntax
             Assert.That(ints, Has.None.Null);
             Assert.That(ints, Has.None.InstanceOf(typeof(string)));
             Assert.That(ints, Has.None.GreaterThan(99));
@@ -426,26 +359,18 @@ namespace NUnit.Framework.Tests
             int[] iarray = new int[] { 1, 2, 3 };
             string[] sarray = new string[] { "a", "b", "c" };
 
-            // Classic syntax
             Assert.Contains(3, iarray);
             Assert.Contains("b", sarray);
             CollectionAssert.Contains(iarray, 3);
             CollectionAssert.Contains(sarray, "b");
             CollectionAssert.DoesNotContain(sarray, "x");
-            // Showing that Contains uses NUnit equality
             CollectionAssert.Contains(iarray, 1.0d);
 
-            // Constraint Syntax
             Assert.That(iarray, Has.Member(3));
             Assert.That(sarray, Has.Member("b"));
             Assert.That(sarray, Has.No.Member("x"));
-            // Showing that Contains uses NUnit equality
             Assert.That(iarray, Has.Member(1.0d));
 
-            // Only available using the new syntax
-            // Note that EqualTo and SameAs do NOT give
-            // identical results to Contains because
-            // Contains uses Object.Equals()
             Assert.That(iarray, Has.Some.EqualTo(3));
             Assert.That(iarray, Has.Member(3));
             Assert.That(sarray, Has.Some.EqualTo("b"));
@@ -463,14 +388,12 @@ namespace NUnit.Framework.Tests
             int[] twothrees = new int[] { 1, 2, 3, 3, 4, 5 };
             int[] twofours = new int[] { 1, 2, 3, 4, 4, 5 };
 
-            // Classic syntax
             CollectionAssert.AreEquivalent(new int[] { 2, 1, 4, 3, 5 }, ints1to5);
             CollectionAssert.AreNotEquivalent(new int[] { 2, 2, 4, 3, 5 }, ints1to5);
             CollectionAssert.AreNotEquivalent(new int[] { 2, 4, 3, 5 }, ints1to5);
             CollectionAssert.AreNotEquivalent(new int[] { 2, 2, 1, 1, 4, 3, 5 }, ints1to5);
             CollectionAssert.AreNotEquivalent(twothrees, twofours);
 
-            // Constraint Syntax
             Assert.That(new int[] { 2, 1, 4, 3, 5 }, Is.EquivalentTo(ints1to5));
             Assert.That(new int[] { 2, 2, 4, 3, 5 }, Is.Not.EquivalentTo(ints1to5));
             Assert.That(new int[] { 2, 4, 3, 5 }, Is.Not.EquivalentTo(ints1to5));
@@ -482,13 +405,11 @@ namespace NUnit.Framework.Tests
         {
             int[] ints1to5 = new int[] { 1, 2, 3, 4, 5 };
 
-            // Classic syntax
             CollectionAssert.IsSubsetOf(new int[] { 1, 3, 5 }, ints1to5);
             CollectionAssert.IsSubsetOf(new int[] { 1, 2, 3, 4, 5 }, ints1to5);
             CollectionAssert.IsNotSubsetOf(new int[] { 2, 4, 6 }, ints1to5);
             CollectionAssert.IsNotSubsetOf(new int[] { 1, 2, 2, 2, 5 }, ints1to5);
 
-            // Constraint Syntax
             Assert.That(new int[] { 1, 3, 5 }, Is.SubsetOf(ints1to5));
             Assert.That(new int[] { 1, 2, 3, 4, 5 }, Is.SubsetOf(ints1to5));
             Assert.That(new int[] { 2, 4, 6 }, Is.Not.SubsetOf(ints1to5));
@@ -505,9 +426,6 @@ namespace NUnit.Framework.Tests
             string[] array2 = { "a", "ab", "abc" };
             ArrayList list = new ArrayList(array);
 
-            // Not available using the classic syntax
-
-            // Constraint Syntax
             Assert.That(list, Has.Property("Count"));
             Assert.That(list, Has.No.Property("Length"));
 
@@ -549,9 +467,6 @@ namespace NUnit.Framework.Tests
         [Test]
         public void NotTests()
         {
-            // Not available using the classic syntax
-
-            // Constraint Syntax
             Assert.That(42, Is.Not.Null);
             Assert.That(42, Is.Not.True);
             Assert.That(42, Is.Not.False);
@@ -568,21 +483,18 @@ namespace NUnit.Framework.Tests
         [Test]
         public void NotOperator()
         {
-            // The ! operator is only available in the new syntax
             Assert.That(42, !Is.Null);
         }
 
         [Test]
         public void AndOperator()
         {
-            // The & operator is only available in the new syntax
             Assert.That(7, Is.GreaterThan(5) & Is.LessThan(10));
         }
 
         [Test]
         public void OrOperator()
         {
-            // The | operator is only available in the new syntax
             Assert.That(3, Is.LessThan(5) | Is.GreaterThan(10));
         }
 
@@ -593,8 +505,6 @@ namespace NUnit.Framework.Tests
 
             Assert.That(7, !Is.Null & !Is.LessThan(5) & !Is.GreaterThan(10));
 
-            // No longer works at all under 3.0
-            // TODO: Evaluate why we wanted to use null in this setting in the first place
 #if false
             // TODO: Remove #if when mono compiler can handle null
 #if MONO
@@ -611,22 +521,6 @@ namespace NUnit.Framework.Tests
         #endregion Operator Tests
 
         #region Invalid Code Tests
-
-        // This method contains assertions that should not compile
-        // You can check by uncommenting it.
-        //public void WillNotCompile()
-        //{
-        //    Assert.That(42, Is.Not);
-        //    Assert.That(42, Is.All);
-        //    Assert.That(42, Is.Null.Not);
-        //    Assert.That(42, Is.Not.Null.GreaterThan(10));
-        //    Assert.That(42, Is.GreaterThan(10).LessThan(99));
-
-        //    object[] c = new object[0];
-        //    Assert.That(c, Is.Null.All);
-        //    Assert.That(c, Is.Not.All);
-        //    Assert.That(c, Is.All.Not);
-        //}
 
         #endregion Invalid Code Tests
 

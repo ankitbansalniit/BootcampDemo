@@ -4,16 +4,6 @@ namespace NUnit.Samples.Money
     using System.Collections;
     using System.Text;
 
-    /// <summary>A MoneyBag defers exchange rate conversions.</summary>
-    /// <remarks>For example adding
-    /// 12 Swiss Francs to 14 US Dollars is represented as a bag
-    /// containing the two Monies 12 CHF and 14 USD. Adding another
-    /// 10 Swiss francs gives a bag with 22 CHF and 14 USD. Due to
-    /// the deferred exchange rate conversion we can later value a
-    /// MoneyBag with different exchange rates.
-    ///
-    /// A MoneyBag is represented as a list of Monies and provides
-    /// different constructors to create a MoneyBag.</remarks>
     internal class MoneyBag : IMoney
     {
         private ArrayList fMonies = new ArrayList(5);

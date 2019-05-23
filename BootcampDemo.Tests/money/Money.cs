@@ -3,22 +3,17 @@ namespace NUnit.Samples.Money
     using System;
     using System.Text;
 
-    /// <summary>A simple Money.</summary>
     internal class Money : IMoney
     {
         private int fAmount;
         private String fCurrency;
 
-        /// <summary>Constructs a money from the given amount and
-        /// currency.</summary>
         public Money(int amount, String currency)
         {
             fAmount = amount;
             fCurrency = currency;
         }
 
-        /// <summary>Adds a money to this money. Forwards the request to
-        /// the AddMoney helper.</summary>
         public IMoney Add(IMoney m)
         {
             return m.AddMoney(this);
