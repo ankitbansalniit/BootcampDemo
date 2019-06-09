@@ -13,17 +13,21 @@ namespace FundamentalsTests
 
             var result = controller.GetCustomer(0);
 
-            // NotFound 
+            // NotFound
             Assert.That(result, Is.TypeOf<NotFound>());
 
-            // NotFound or one of its derivatives 
+            // NotFound or one of its derivatives
             //            Assert.That(result, Is.InstanceOf<NotFound>());
         }
 
         [Test]
         public void GetCustomer_IdIsNotZero_ReturnOk()
         {
+            var controller = new CustomerController();
 
+            var result = controller.GetCustomer(1);
+
+            Assert.That(result, Is.TypeOf<Ok>());
         }
     }
 }
